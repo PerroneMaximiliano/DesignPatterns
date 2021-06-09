@@ -1,6 +1,6 @@
 package com.design.patterns.tickets.spanishConfiguration;
 
-import com.design.patterns.tickets.menu.CancellationLineCommand;
+import com.design.patterns.tickets.menu.CancelationLineCommand;
 import com.design.patterns.tickets.menu.Menu;
 import com.design.patterns.tickets.menu.RepetitionLineCommand;
 import com.design.patterns.tickets.menu.ReturnLineCommand;
@@ -13,7 +13,7 @@ public class SpanishMenu extends Menu {
 		commandList.add(new SaleLineCommand());
 		commandList.add(new RepetitionLineCommand());
 		commandList.add(new ReturnLineCommand());
-		commandList.add(new CancellationLineCommand());
+		commandList.add(new CancelationLineCommand());
 	}
 
 }

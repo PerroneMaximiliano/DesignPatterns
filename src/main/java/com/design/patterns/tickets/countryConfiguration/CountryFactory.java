@@ -1,7 +1,8 @@
-package com.design.patterns.tickets;
+package com.design.patterns.tickets.countryConfiguration;
 
 import com.design.patterns.tickets.menu.Menu;
 import com.design.patterns.tickets.spanishConfiguration.SpanishFactory;
+import com.design.patterns.tickets.ticket.Ticket;
 
 public abstract class CountryFactory {
 	
@@ -14,7 +15,15 @@ public abstract class CountryFactory {
 		return CountryFactory.countryFactory;
 	}
 	
-	public abstract Menu getMenu();
-	
-	public abstract Ticket getTicket();
+	protected Menu menu;
+
+	protected TicketBuilder ticketBuilder;
+
+	public Ticket getTicket() {
+		return ticketBuilder.build();
+	}
+
+	public Menu getMenu() {
+		return menu;
+	}
 }

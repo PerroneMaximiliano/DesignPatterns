@@ -1,4 +1,4 @@
-package com.design.patterns.tickets;
+package com.design.patterns.tickets.ticket;
 
 public class Clock {
 

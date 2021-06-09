@@ -1,10 +1,10 @@
 package com.design.patterns.tickets.frenchConfiguration;
 
-import com.design.patterns.tickets.CountryFactory;
-import com.design.patterns.tickets.Ticket;
+import com.design.patterns.tickets.countryConfiguration.CountryFactory;
 import com.design.patterns.tickets.menu.Menu;
+import com.design.patterns.tickets.ticket.Ticket;
 
-public class FranchFactory extends CountryFactory {
+public class FrenchFactory extends CountryFactory {
 
 	@Override
 	public Menu getMenu() {

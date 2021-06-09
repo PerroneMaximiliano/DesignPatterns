@@ -3,10 +3,9 @@ package com.design.patterns.tickets.menu;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.design.patterns.tickets.Ticket;
+import com.design.patterns.tickets.ticket.Ticket;
 import com.design.patterns.utils.Console;
-
-import designPatterns.exercises.n2_tickets.v1.utils.IO;
+import com.design.patterns.utils.LimitedIntDialog;
 
 public abstract class Menu {
 	
@@ -31,29 +30,24 @@ public abstract class Menu {
 	
 	public void execute(Ticket ticket) {
 		this.set(ticket);
-		boolean exit = false;
+		exitCommand.reset();
 		do {
-			Console.instance().writeln("1. Añadir linea de venta");
-			Console.instance().writeln("2. Añadir linea de anulacion");
-			int option = Console.instance().readInt("Opcion? ");
-			switch (option) {
-			case 1:
-				break;
-			case 2:
-				break;
-			default:
-				break;
-			}
-		} while(!exit);
+			this.write();
+			int option = this.getOption();
+			commandList.get(option).execute();
+		} while(!exitCommand.closed());
+	}
+
+	private void write() {
+		Console.instance().writeln();
+		Console.instance().writeln("---------------------");
+		for (int i = 0; i < commandList.size(); i++) {
+			Console.instance().writeln((i + 1) + ". " + commandList.get(i).getTitle());
+		}
 	}
 	
-	private void write() {
-		IO.instance().writeln();
-		IO.instance().writeln();
-		IO.instance().writeln("---------------------");
-		for (int i = 0; i < commandList.size(); i++) {
-			IO.instance().writeln(
-					(i + 1) + ". " + commandList.get(i).getTitle());
-		}
+	private int getOption() {
+		return LimitedIntDialog.instance()
+				.read("Opción", 1, commandList.size()) - 1;
 	}
 }
