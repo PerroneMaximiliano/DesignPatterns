@@ -2,6 +2,7 @@ package com.design.patterns.manager.dispatcher;
 
 import com.design.patterns.manager.manager.Server;
 import com.design.patterns.manager.store.Store;
+import com.design.patterns.manager.utils.FrameType;
 
 public class AddDispatcher extends Dispatcher {
 
@@ -14,6 +15,7 @@ public class AddDispatcher extends Dispatcher {
 		int code = Integer.parseInt(server.readLine());
 		int amount = Integer.parseInt(server.readLine());
 		store.add(code, amount);
+		server.println(FrameType.ACK.name());
 	}
 
 	@Override

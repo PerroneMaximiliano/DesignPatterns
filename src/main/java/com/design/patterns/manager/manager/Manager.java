@@ -6,7 +6,7 @@ import com.design.patterns.utils.LimitedIntDialog;
 
 public abstract class Manager {
 
-	private Store store;
+	protected Store store;
 	
 	public Manager() {
 		store = this.createStore();

@@ -55,6 +55,11 @@ public class Server {
 		out.flush();
 	}
 	
+	public void println(String value) {
+		out.println(value);
+		out.flush();
+	}
+	
 	public void close() {
 		try {
 			in.close();

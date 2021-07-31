@@ -62,6 +62,12 @@ public class Client {
 		return line;
 	}
 	
+	void readACK() throws Exception {
+		if (!in.readLine().equals(FrameType.ACK.name())) {
+			throw new Exception();
+		}
+	}
+	
 	public void close() {
 		try {
 			this.println(FrameType.CLOSE.name());
